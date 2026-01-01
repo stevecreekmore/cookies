@@ -1,5 +1,5 @@
 {{-- Cookie Consent Banner --}}
-<div id="cookie-consent-banner" style="display: none;">
+<div id="cookie-consent-banner" >
     <div class="cookie-consent-wrapper">
         {{-- Main Consent Content --}}
         <div class="cookie-consent-content">
@@ -97,7 +97,7 @@
 
 {{-- Floating Cookie Settings Button (appears after consent given) --}}
 @if(config('cookies.show_settings_button', true))
-<button id="cookie-settings-button" class="cookie-settings-floating" style="display: none;" aria-label="Cookie Settings">
+<button id="cookie-settings-button" class="cookie-settings-floating"  aria-label="Cookie Settings">
     <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
         <path d="M10 2C8.9 2 8 2.9 8 4C8 4.3 8.1 4.6 8.2 4.9C6.6 5.5 5.4 6.9 5 8.6C4.7 8.5 4.4 8.5 4 8.5C2.9 8.5 2 9.4 2 10.5C2 11.6 2.9 12.5 4 12.5C4.4 12.5 4.7 12.4 5 12.3C5.4 14 6.6 15.4 8.2 16C8.1 16.3 8 16.6 8 17C8 18.1 8.9 19 10 19C11.1 19 12 18.1 12 17C12 16.6 11.9 16.3 11.8 16C13.4 15.4 14.6 14 15 12.3C15.3 12.4 15.6 12.5 16 12.5C17.1 12.5 18 11.6 18 10.5C18 9.4 17.1 8.5 16 8.5C15.6 8.5 15.3 8.6 15 8.7C14.6 7 13.4 5.6 11.8 5C11.9 4.7 12 4.4 12 4C12 2.9 11.1 2 10 2Z"/>
     </svg>
@@ -434,6 +434,7 @@
     if (!existingConsent) {
         showBanner();
     } else {
+        document.getElementById('cookie-consent-banner').style.display = 'none';
         // Load scripts based on existing consent
         try {
             const consentData = JSON.parse(decodeURIComponent(existingConsent));
