@@ -123,6 +123,6 @@ return [
     /*
      * Privacy policy and cookie policy URLs
      */
-    'policy_url' => env('COOKIE_POLICY_URL', '/privacy-policy'),
+    'policy_url' => env('COOKIE_PRIVACY_POLICY_URL', '/privacy-policy'),
     'cookie_policy_url' => env('COOKIE_POLICY_URL', '/cookie-policy'),
 ];
