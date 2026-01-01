@@ -1,0 +1,67 @@
+{
+    "name": "stevecreekmore/cookies",
+    "description": "A Laravel package for managing cookie consent and GDPR compliance",
+    "keywords": [
+        "stevecreekmore",
+        "cookies",
+        "laravel",
+        "cookie-consent",
+        "gdpr",
+        "privacy"
+    ],
+    "homepage": "https://github.com/stevecreekmore/cookies",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Steve Creekmore",
+            "email": "creekmore108@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.4",
+        "illuminate/support": "^12.0",
+        "illuminate/contracts": "^12.0"
+    },
+    "require-dev": {
+        "pestphp/pest": "^4.0",
+        "pestphp/pest-plugin-laravel": "^4.0",
+        "laravel/pint": "^1.0",
+        "orchestra/testbench": "^10.0",
+        "spatie/ray": "^1.28"
+    },
+    "autoload": {
+        "psr-4": {
+            "Stevecreekmore\\Cookies\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Stevecreekmore\\Cookies\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+            "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Stevecreekmore\\Cookies\\CookiesServiceProvider"
+            ],
+            "aliases": {
+                "Cookies": "Stevecreekmore\\Cookies\\Facades\\Cookies"
+            }
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

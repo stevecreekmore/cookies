@@ -1,0 +1,30 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('cookie_consent_logs', function (Blueprint $table) {
+            $table->id();
+            $table->string('cookie_id')->index()->comment('Unique identifier for this user session');
+            $table->json('consented_categories')->comment('Array of consented cookie categories');
+            $table->string('ip_address', 45)->nullable();
+            $table->text('user_agent')->nullable();
+            $table->string('action')->comment('accept_all, reject_all, custom, withdraw');
+            $table->timestamps();
+            $table->softDeletes();
+
+            // Index for quick lookups
+            $table->index(['cookie_id', 'created_at']);
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('cookie_consent_logs');
+    }
+};
