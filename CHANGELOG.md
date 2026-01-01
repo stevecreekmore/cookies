@@ -2,6 +2,10 @@
 
 All notable changes to `cookies` will be documented in this file.
 
+## Second release after rebuild - 2026-01-01
+
+Fixed COOKIE_PRIVACY_POLICY_URL definition in config
+
 ## Second release - added test cases - 2025-12-31
 
 Added test cases
